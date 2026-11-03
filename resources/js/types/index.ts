@@ -38,3 +38,16 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface DemoFeatures {
+    queue: boolean;
+    storage: boolean;
+    cache: boolean;
+    database: boolean;
+    environment: {
+        app_env: string;
+        arco_env: string | null;
+        php: string;
+        region: string | null;
+    };
+}
