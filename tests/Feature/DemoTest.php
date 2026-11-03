@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Jobs\DemoJob;
+use Illuminate\Cache\ArrayStore;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Exceptions;
@@ -134,6 +135,22 @@ class DemoTest extends TestCase
 
         $this->postJson('/demo/counter')->assertOk()->assertJson(['count' => 1]);
         $this->postJson('/demo/counter')->assertOk()->assertJson(['count' => 2]);
+    }
+
+    public function test_the_counter_starts_at_one_when_increment_fails_on_a_missing_key(): void
+    {
+        // Mirrors DynamoDbStore: increment on a missing key returns false.
+        Cache::extend('strict', fn () => Cache::repository(new class extends ArrayStore
+        {
+            public function increment($key, $value = 1)
+            {
+                return $this->get($key) === null ? false : parent::increment($key, $value);
+            }
+        }));
+        config(['cache.default' => 'dynamodb', 'cache.stores.dynamodb' => ['driver' => 'strict']]);
+
+        $this->postJson('/demo/counter')->assertOk()->assertExactJson(['count' => 1]);
+        $this->postJson('/demo/counter')->assertOk()->assertExactJson(['count' => 2]);
     }
 
     public function test_the_counter_returns_409_without_a_shared_cache(): void

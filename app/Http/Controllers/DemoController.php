@@ -59,7 +59,10 @@ class DemoController extends Controller
             return response()->json(['message' => 'No shared cache is configured.'], 409);
         }
 
-        return response()->json(['count' => Cache::increment('demo:counter')]);
+        // DynamoDB's increment fails on a missing key, so create it first.
+        Cache::add('demo:counter', 0);
+
+        return response()->json(['count' => (int) Cache::increment('demo:counter')]);
     }
 
     public function log(): Response
