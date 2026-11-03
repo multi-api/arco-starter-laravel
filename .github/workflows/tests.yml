@@ -1,8 +1,10 @@
 name: tests
 
+# Not on push: every repository generated from this template would spend its Actions minutes on Arco Cloud's own
+# commits. Run it on a pull request, or by hand from the Actions tab.
 on:
-  push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   ci:

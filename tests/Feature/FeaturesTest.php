@@ -36,12 +36,16 @@ class FeaturesTest extends TestCase
 
     public function test_it_reports_the_environment()
     {
+        // The variables Arco sets on every function (multiapi/arco's DeployPipeline).
+        $this->setEnvironmentVariable('ARCO_ENV', 'staging');
+        $this->setEnvironmentVariable('AWS_REGION', 'eu-west-1');
+
         $env = Features::current()['environment'];
 
         $this->assertSame('testing', $env['app_env']);
         $this->assertSame(PHP_VERSION, $env['php']);
-        $this->assertArrayHasKey('arco_env', $env);
-        $this->assertArrayHasKey('region', $env);
+        $this->assertSame('staging', $env['arco_env']);
+        $this->assertSame('eu-west-1', $env['region']);
     }
 
     public function test_login_works_with_a_database()
@@ -80,6 +84,32 @@ class FeaturesTest extends TestCase
         });
 
         $this->refreshApplication();
+    }
+
+    /**
+     * Set a process variable for this test only, restoring the previous value afterwards.
+     */
+    private function setEnvironmentVariable(string $name, string $value): void
+    {
+        $previous = [$_ENV[$name] ?? null, $_SERVER[$name] ?? null, getenv($name)];
+
+        putenv("$name=$value");
+        $_ENV[$name] = $_SERVER[$name] = $value;
+
+        $this->beforeApplicationDestroyed(function () use ($name, $previous) {
+            [$env, $server, $process] = $previous;
+            if ($env === null) {
+                unset($_ENV[$name]);
+            } else {
+                $_ENV[$name] = $env;
+            }
+            if ($server === null) {
+                unset($_SERVER[$name]);
+            } else {
+                $_SERVER[$name] = $server;
+            }
+            putenv($process === false ? $name : "$name=$process");
+        });
     }
 
     private function unsetGlobal(array &$globals): void

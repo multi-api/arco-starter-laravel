@@ -49,4 +49,4 @@ A card for a resource you have not added says so and points to Arco Cloud → Re
 
 ## CI
 
-`.github/workflows/tests.yml` builds the front end and runs `php artisan test` with PHP 8.5 on every push and pull request. `lint.yml` runs the code style checks.
+`.github/workflows/tests.yml` builds the front end and runs `php artisan test` with PHP 8.5 on every pull request, or by hand (*Run workflow* in the Actions tab). It does not run on push, so a repository generated from this template spends no Actions minutes on the commits Arco Cloud makes while setting it up. `lint.yml` runs the code style checks.
