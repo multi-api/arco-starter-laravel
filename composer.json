@@ -12,7 +12,10 @@
         "php": "^8.2",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.0",
+        "laravel/octane": "^2.22",
         "laravel/tinker": "^2.10.1",
+        "multiapi/arco-laravel": "^0.16",
+        "multiapi/laravel-aurora-dsql": "^0.3",
         "tightenco/ziggy": "^2.4"
     },
     "require-dev": {
@@ -21,6 +24,7 @@
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
+        "multiapi/arco": "^0.16",
         "nunomaduro/collision": "^8.6",
         "phpunit/phpunit": "^11.5.3"
     },

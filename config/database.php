@@ -97,6 +97,21 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'dsql' => [
+            'driver' => 'dsql',
+            'host' => env('DSQL_HOST'),
+            'region' => env('AWS_REGION', 'us-east-1'),
+            'username' => env('DSQL_USER', 'admin'),
+            'database' => 'postgres',
+            'profile' => env('DSQL_PROFILE'),
+            'sslrootcert' => env('DSQL_SSLROOTCERT', 'system'),
+            'occ_max_retries' => 3,
+            'wait_for_indexes' => true,
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => env('DSQL_SEARCH_PATH', 'public'),
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
