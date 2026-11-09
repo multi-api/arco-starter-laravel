@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e5d3ba9121e1fa08b4764dc460284ae",
+    "content-hash": "8f2f69eeabb584d4815b432f74982d4b",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2666,7 +2666,7 @@
         },
         {
             "name": "multiapi/arco-laravel",
-            "version": "v0.19.1",
+            "version": "v0.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multi-api/arco-laravel.git",
@@ -7506,16 +7506,16 @@
         },
         {
             "name": "multiapi/arco",
-            "version": "v0.19.1",
+            "version": "v0.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multi-api/arco.git",
-                "reference": "66d9047ca2eadc81ce881613a79ca7a55bce49d4"
+                "reference": "af4b773786637212cac600694a94e25966d92336"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/multi-api/arco/zipball/66d9047ca2eadc81ce881613a79ca7a55bce49d4",
-                "reference": "66d9047ca2eadc81ce881613a79ca7a55bce49d4",
+                "url": "https://api.github.com/repos/multi-api/arco/zipball/af4b773786637212cac600694a94e25966d92336",
+                "reference": "af4b773786637212cac600694a94e25966d92336",
                 "shasum": ""
             },
             "require": {
@@ -7567,11 +7567,11 @@
                 "issues": "https://github.com/multi-api/arco/issues",
                 "source": "https://github.com/multi-api/arco"
             },
-            "time": "2026-11-04T03:16:31+00:00"
+            "time": "2026-11-09T17:52:41+00:00"
         },
         {
             "name": "multiapi/arco-secrets",
-            "version": "v0.19.1",
+            "version": "v0.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multi-api/arco-secrets.git",
