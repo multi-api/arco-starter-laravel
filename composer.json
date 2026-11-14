@@ -14,7 +14,7 @@
         "laravel/framework": "^13.0",
         "laravel/octane": "^2.22",
         "laravel/tinker": "^3.0",
-        "multiapi/arco-laravel": "^0.19.2",
+        "multiapi/arco-laravel": "^0.20.7",
         "multiapi/laravel-aurora-dsql": "^0.3.1",
         "tightenco/ziggy": "^2.4"
     },
@@ -24,7 +24,7 @@
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
-        "multiapi/arco": "^0.19.2",
+        "multiapi/arco": "^0.20.7",
         "nunomaduro/collision": "^8.6",
         "phpunit/phpunit": "^11.5.3"
     },
